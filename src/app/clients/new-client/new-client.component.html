@@ -1,0 +1,37 @@
+<div class="container pt-5">
+  <h2 class="text-center">Create new client</h2>
+  <form [formGroup]="clientForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label>Name</label>
+      <input type="text" formControlName="name" class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+      <div *ngIf="f.name.errors" class="invalid-feedback">
+        <div *ngIf="f.name.errors.required">Name is required</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Address</label>
+      <textarea type="text" formControlName="address" class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.address.errors }"></textarea>
+      <div *ngIf="f.address.errors" class="invalid-feedback">
+        <div *ngIf="f.address.errors.required">Address is required</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>NIP</label>
+      <input type="text" formControlName="NIP" class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.NIP.errors }" />
+      <div *ngIf="f.NIP.errors" class="invalid-feedback">
+        <div *ngIf="f.NIP.errors.required">Message is required</div>
+        <div *ngIf="f.NIP.errors.minlength">NIP should contain 10 numbers</div>
+        <div *ngIf="f.NIP.errors.maxlength">NIP should contain 10 numbers</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <button class="btn btn-primary">Send</button>
+    </div>
+  </form>
+</div>
