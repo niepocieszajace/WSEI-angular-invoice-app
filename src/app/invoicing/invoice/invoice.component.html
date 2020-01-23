@@ -1,0 +1,17 @@
+<div class="invoice">
+  <div class="row">
+    <div class="col-4">
+      <div class="container m-3">
+        <app-client-selection></app-client-selection>
+      </div>
+    </div>
+    <div class="col-4"></div>
+    <div class="col-4">
+      <div class="container m-3 pt-4">
+        <app-invoice-date></app-invoice-date>
+      </div>
+    </div>
+  </div>
+  <app-invoice-positions [positions]=invoice.items (itemsChanged)=updateItems($event)></app-invoice-positions>
+  <app-invoice-summary [summary]=invoiceSummary></app-invoice-summary>
+</div>

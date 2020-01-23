@@ -1,0 +1,14 @@
+<select name="client" id="client" [(ngModel)]="client">
+  <option *ngFor="let client of clients" [ngValue]=client>{{ client.name }}</option>
+</select>
+
+<div *ngIf="!!client" class="p-3">
+  <p>
+    <b>{{ client.name }}</b>
+    <br>
+    {{ client.address }}
+    <br>
+    NIP: {{client.NIP}}
+  </p>
+
+</div>
